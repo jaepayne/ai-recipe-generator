@@ -6,15 +6,16 @@ export function request(ctx) {
   
     // Return the request configuration
     return {
-      // resourcePath: `/model/anthropic.claude-3-sonnet-20240229-v1:0/invoke`,
-      resourcePath: `/model/anthropic.claude-3-7-sonnet-20250219-v1:0/invoke`,
+      resourcePath: `/model/anthropic.claude-3-sonnet-20240229-v1:0/invoke`,
+      // resourcePath: `/model/anthropic.claude-3-7-sonnet-20250219-v1:0/invoke`,
       method: "POST",
       params: {
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          anthropic_version: "bedrock-2025-02-19",
+          // anthropic_version: "bedrock-2025-02-19",
+          anthropic_version: "bedrock-2024-03-04",
           max_tokens: 1000,
           messages: [
             {
