@@ -6,16 +6,7 @@ import { generateClient } from "aws-amplify/data";
 import outputs from "../amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
 Amplify.configure(outputs);
-type AskBedrockResponse = { body?: string; error?: string };
-type ClientShape = {
-  queries: {
-    askBedrock: (args: { ingredients: string[] }) => Promise<{
-      data?: AskBedrockResponse;
-      errors?: unknown;
-    }>;
-  };
-};
-const amplifyClient = generateClient<ClientShape>({
+const amplifyClient = generateClient<any>({
   authMode: "userPool",
 });
 function App() {
