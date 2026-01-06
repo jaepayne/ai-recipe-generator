@@ -25,7 +25,13 @@ function App() {
       if (!errors) {
         setResult(data?.body || "No data returned");
       } else {
-        console.log(errors);
+        const msg = Array.isArray(errors)
+          ? errors
+              .map((e: any) => e?.message || JSON.stringify(e))
+              .join("\n")
+          : JSON.stringify(errors);
+        setResult(`Error: ${msg}`);
+        console.error(errors);
       }
     } catch (e) {
       alert(`An error occurred: ${e}`);
