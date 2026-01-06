@@ -17,10 +17,11 @@ function App() {
     setLoading(true);
     try {
       const formData = new FormData(event.currentTarget);
-      const { data, errors } = await
-        amplifyClient.queries.askBedrock({
-          ingredients: [formData.get("ingredients")?.toString() || ""],
-        });
+      const response = await amplifyClient.queries.askBedrock({
+        ingredients: [formData.get("ingredients")?.toString() || ""],
+      });
+      const data = (response as any)?.data ?? response;
+      const errors = (response as any)?.errors;
       if (!errors) {
         setResult(data?.body || "No data returned");
       } else {
