@@ -1,3 +1,6 @@
+AWS Hands-On Tutorials: https://aws.amazon.com/getting-started/hands-on/
+Build a Serverless Web Application using Generative AI: https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai.html?ref=gsrchandson
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
