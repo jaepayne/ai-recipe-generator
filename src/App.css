@@ -5,6 +5,27 @@
   text-align: center;
 }
 
+.top-right-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.logout-button {
+  padding: 8px 14px;
+  font-size: 14px;
+  background-color: #e11d48;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #be123c;
+}
+
 .header-container {
   padding-bottom: 2.5rem;
   margin:  auto;

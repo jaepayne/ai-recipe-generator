@@ -1,5 +1,5 @@
 import { type FormEvent, useState } from "react";
-import { Loader, Placeholder } from "@aws-amplify/ui-react";
+import { Loader, Placeholder, useAuthenticator } from "@aws-amplify/ui-react";
 import "./App.css";
 import { Amplify } from "aws-amplify";
 import { generateClient } from "aws-amplify/data";
@@ -10,6 +10,7 @@ const amplifyClient = generateClient<any>({
   authMode: "userPool",
 });
 function App() {
+  const { signOut } = useAuthenticator();
   const [result, setResult] = useState<string>("");
   const [loading, setLoading] = useState(false);
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -41,6 +42,11 @@ function App() {
   };
   return (
     <div className="app-container">
+      <div className="top-right-actions">
+        <button className="logout-button" type="button" onClick={signOut}>
+          Logout
+        </button>
+      </div>
       <div className="header-container">
         <h1 className="main-header">
           Meet Your Personal

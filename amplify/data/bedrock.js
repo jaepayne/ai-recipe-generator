@@ -32,12 +32,15 @@ export function request(ctx) {
   }
   
   export function response(ctx) {
-    // Parse the response body
-    const parsedBody = JSON.parse(ctx.result.body);
-    // Extract the text content from the response
-    const res = {
-      body: parsedBody.content[0].text,
+    // Parse the response body safely
+    const parsedBody = JSON.parse(ctx.result.body || "{}");
+    const contentArray = parsedBody?.content;
+    const firstText = Array.isArray(contentArray)
+      ? contentArray[0]?.text
+      : undefined;
+  
+    return {
+      body: firstText || parsedBody?.output_text || JSON.stringify(parsedBody),
+      error: parsedBody?.error || undefined,
     };
-    // Return the response
-    return res;
   }
