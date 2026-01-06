@@ -15,7 +15,7 @@ export function request(ctx) {
         },
         body: JSON.stringify({
           // anthropic_version: "bedrock-2025-02-19",
-          anthropic_version: "bedrock-2024-03-04",
+          anthropic_version: "bedrock-2024-02-29",
           max_tokens: 1000,
           messages: [
             {
